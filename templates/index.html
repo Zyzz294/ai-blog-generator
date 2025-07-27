@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>📝 AI Blog Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6 font-sans">
+    <div class="max-w-2xl mx-auto bg-white shadow-md rounded p-6">
+        <h1 class="text-2xl font-bold mb-4">🧠 AI Blog Generator</h1>
+
+        <!-- Form to enter topic and word count -->
+        <form method="post" enctype="application/x-www-form-urlencoded" class="space-y-4">
+            <div>
+                <label for="topic" class="block text-sm font-medium">Enter Blog Topic:</label>
+                <input type="text" id="topic" name="topic"
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2"
+                    required>
+            </div>
+
+            <div>
+                <label for="wordcount" class="block text-sm font-medium">Word Count:</label>
+                <input type="number" id="wordcount" name="wordcount" value="500" min="100" max="2000" step="50"
+                    class="mt-1 block w-40 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2"
+                    required>
+            </div>
+
+            <button type="submit"
+                class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
+                ✨ Generate Blog
+            </button>
+        </form>
+
+        <!-- Show the generated blog if available -->
+        {% if blog %}
+            <div class="mt-6 bg-gray-50 border border-gray-200 rounded p-4 whitespace-pre-wrap">
+                {{ blog }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
